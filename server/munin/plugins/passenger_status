@@ -32,7 +32,7 @@ def output_values
   puts "active.value #{$1}"
 
   status =~ /global queue:\s+(\d+)/
-  puts "queue.label #{$1}"
+  puts "queue.value #{$1}"
 
   total_sessions = 0
   status.scan(/Sessions: (\d+)/).flatten.each { |count| total_sessions += count.to_i }
