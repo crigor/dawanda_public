@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+# put in /etc/munin/plugins and restart munin-node
+
+def output_config
+  puts <<-END
+graph_category App
+graph_title SOLR query times
+graph_vlabel count
+qtime.label qtime
+END
+  exit 0
+end
+
+def output_values
+  qtime = `tail -n 5000 /srv/dawanda.com/current/log/solr_console.log | grep "QTime=" | awk '{ split($8,a,"="); s += a[2];} END {print "qtime.value " ,int(s/NR)}'`
+  puts qtime
+end
+
+if ARGV[0] == "config"
+  output_config
+else
+  output_values
+end
