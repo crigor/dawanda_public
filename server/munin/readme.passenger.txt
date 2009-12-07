@@ -9,3 +9,8 @@ add the following line at the bottom
 and do not forget to restart munin-node
 
 based on: http://www.dcmanges.com/blog/rails-application-visualization-with-munin
+
+
+
+INSTALL SCRIPT RUBY
+
